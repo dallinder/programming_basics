@@ -10,7 +10,7 @@ def error
   puts 'That does not look like a vaild number. Please enter a positive number.'
 end
 
-prompt 'Welcome to the Morgage Calculator! What is your name?'
+prompt 'Welcome to the Mortgage Calculator! What is your name?'
 name = gets.chomp
 prompt "Hi #{name}!"
 
@@ -63,4 +63,4 @@ loop do
   break unless answer.downcase.start_with?('y')
 end
 
-prompt 'Thank you for using the Morgage Calculator! Goodbye!'
+prompt 'Thank you for using the Mortgage Calculator! Goodbye!'
