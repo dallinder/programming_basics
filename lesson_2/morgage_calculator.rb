@@ -15,12 +15,12 @@ name = gets.chomp
 prompt "Hi #{name}!"
 
 loop do
-  p = ''
+  loan_amount = ''
   loop do
     prompt 'How much is your loan for?'
-    p = gets.chomp.to_i
+    loan_amount = gets.chomp.to_i
 
-    if valid_number?(p)
+    if valid_number?(loan_amount)
       break
     else
       error
@@ -40,23 +40,23 @@ loop do
     end
   end
 
-  n = ''
+  loan_duration = ''
   loop do
     prompt 'What is the loan duration (in months)?'
-    n = gets.chomp.to_i
+    loan_duration = gets.chomp.to_i
 
-    if valid_number?(n)
+    if valid_number?(loan_duration)
       break
     else
       error
     end
   end
 
-  m = p * (apr / (1 - (1 + apr)**-n))
+  monthly_payment = loan_amount * (apr / (1 - (1 + apr)**-loan_duration))
 
   prompt 'Calculating your monthly payment...'
   sleep(3)
-  prompt "Your monthly payment is #{m} for #{n} months."
+  prompt "Your monthly payment is #{monthly_payment} for #{loan_duration} months."
 
   prompt 'Do you want to calculate another montly payment? (Y to continue): '
   answer = gets.chomp
