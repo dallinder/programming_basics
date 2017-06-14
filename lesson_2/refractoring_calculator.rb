@@ -102,4 +102,4 @@ prompt "#{operation_to_message(operator)} the two numbers..."
   break unless answer.downcase.start_with?('y')
 end
 
-prompt "Thank you for using the calculator. Good bye!"
+prompt 'Thank you for using the calculator. Good bye!'
