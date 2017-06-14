@@ -1,0 +1,41 @@
+START
+
+#Write pseudo-code for a method that returns the sum of 2 integers
+
+def sum(int1, int2)
+  return int1 + int2
+end
+
+PRINT sum(int1, int2)
+
+END
+
+START
+
+#A method that takes an array of strings and returns a string that is all those strings concatenated together
+
+SET arr = ["String1", "String2", "String3"]
+
+def string_comb
+  SET arr = string + method that combines strings
+  string = string + method that turns array into a string
+  PRINT string
+end
+
+END
+
+START
+#A method that takes an array of integers and returns a new array with every other element
+arr_of_integers = [0, 5, 3, 2, 2, 4]
+Def every_other_integer
+  new_array = []
+  IF arr_of_integers index = 2 % 0 = 0
+    then PRINT that index in new_array
+  ELSE
+    skip that integer
+  end
+end
+
+PRINT every_other_integer
+
+END
