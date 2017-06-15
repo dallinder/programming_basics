@@ -56,7 +56,7 @@ loop do
 
   prompt 'Calculating your monthly payment...'
   sleep(3)
-  prompt "Your monthly payment is #{monthly_payment} for #{loan_duration} months."
+  prompt "Your monthly payment is #{monthly_payment.round(2)} for #{loan_duration} months."
 
   prompt 'Do you want to calculate another montly payment? (Y to continue): '
   answer = gets.chomp
