@@ -6,7 +6,7 @@ def valid_number?(num)
   num.to_i != 0
 end
 
-def error
+def invalid_num_err_message
   puts 'That does not look like a vaild number. Please enter a positive number.'
 end
 
@@ -23,7 +23,7 @@ loop do
     if valid_number?(loan_amount)
       break
     else
-      error
+      invalid_num_err_message
     end
   end
 
@@ -36,7 +36,7 @@ loop do
       apr = (apr / 12) / 100
       break
     else
-      error
+      invalid_num_err_message
     end
   end
 
@@ -48,7 +48,7 @@ loop do
     if valid_number?(loan_duration)
       break
     else
-      error
+      invalid_num_err_message
     end
   end
 
