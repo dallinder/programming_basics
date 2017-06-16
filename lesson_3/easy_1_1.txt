@@ -1,0 +1,18 @@
+numbers = [1, 2, 2, 3]
+numbers.uniq
+
+puts numbers
+
+This problem puts out:
+
+1
+2
+2
+3
+
+The reason is that puts converts the array to a string. And uniq does not mutate the original numbers array. To make it print out a new array with [1, 2, 3], you would have to do this:
+
+numbers = [1, 2, 2, 3]
+numbers.uniq!
+
+p numbers 

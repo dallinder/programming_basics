@@ -1,0 +1,2 @@
+numbers.delete_at will delete the value at index 1
+numbers.delete will delete the value in the ()

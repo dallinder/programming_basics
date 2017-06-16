@@ -1,0 +1,8 @@
+The difference between ! and ? only matters in the context in which you are using it.
+
+1. != is not equals and should be used when you are comparing
+2. Turns it into the opposite of their boolean equivilent
+3. It is a destructive method.
+4. Part of ternary operation
+5. Returns a boolean value
+6. Turns it to their boolean equivilent
