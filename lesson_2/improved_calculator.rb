@@ -97,7 +97,7 @@ loop do # main loop
            end
 
   prompt "The result is #{result}"
-
+  
   prompt (MESSAGES['again'])
   answer = gets.chomp
   break unless answer.downcase.start_with?('y')
