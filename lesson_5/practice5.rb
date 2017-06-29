@@ -6,3 +6,9 @@ munsters = {
   "Marilyn" => { "age" => 23, "gender" => "female"}
 }
 
+total_age = 0
+munsters.each_value do |details|
+  total_age += details["age"] if details["gender"] == 'male'
+end
+
+total_age
