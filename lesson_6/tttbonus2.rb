@@ -4,6 +4,9 @@ WINNING_LINES = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + # rows
 INITAL_MARKER = ' '
 PLAYER_MARKER = 'X'
 COMPUTER_MARKER = 'O'
+puts "Type '1' for you to go first.
+      Type '2 for the computer to go first."
+WHOSE_FIRST = gets.chomp
 
 def prompt(msg)
   puts "=> #{msg}"
@@ -59,8 +62,37 @@ def player_places_pieces!(brd)
   brd[square] = PLAYER_MARKER
 end
 
+def comp_ai(line, brd, marker)
+  if brd.values_at(*line).count(marker) == 2
+     brd.select { |k, v| line.include?(k) && v == INITAL_MARKER }.keys.first
+  else
+   nil
+  end
+end
+
 def computer_places_piece!(brd)
-  square = empty_squares(brd).sample
+  square = nil
+
+ if !square
+    WINNING_LINES.each do |line|
+      line = comp_ai(line, brd, COMPUTER_MARKER)
+      break if square
+    end
+  end
+
+  WINNING_LINES.each do |line|
+    line = comp_ai(line, brd, PLAYER_MARKER)
+    break if square
+  end
+
+  if brd.values_at(5) == ' '
+    brd[square] == COMPUTER_MARKER
+  end
+
+  if !square
+    square = empty_squares(brd).sample
+  end
+  
   brd[square] = COMPUTER_MARKER
 end
 
@@ -88,15 +120,31 @@ computer_score = 0
 loop do
   board = intialize_board
 
-  loop do
-    display_board(board)
-    prompt("Player: #{player_score}  Computer: #{computer_score}")
-    player_places_pieces!(board)
-    break if someone_won?(board) || board_full?(board)
+  if WHOSE_FIRST = '1'
+    loop do
+      display_board(board)
+      prompt("Player: #{player_score}  Computer: #{computer_score}")
+      
+      player_places_pieces!(board)
+      break if someone_won?(board) || board_full?(board)
 
-    computer_places_piece!(board)
-    break if someone_won?(board) || board_full?(board)
+      computer_places_piece!(board)
+      break if someone_won?(board) || board_full?(board)
+    end
+  elsif WHOSE_FIRST = '2'
+    loop do
+      display_board(board)
+      prompt("Player: #{player_score}  Computer: #{computer_score}")
+      
+      computer_places_piece!(board)
+      display_board(board)
+      break if someone_won?(board) || board_full?(board)
+      
+      player_places_pieces!(board)
+      break if someone_won?(board) || board_full?(board)
+    end
   end
+    
 
   display_board(board)
   if someone_won?(board)
